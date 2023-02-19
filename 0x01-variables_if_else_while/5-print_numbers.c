@@ -1,5 +1,4 @@
 #include <stdioh>
-#include <unistd.h>
 /**
  * main - Entry point
  * Description: Prints all single digit numbers of base 10 from 0
