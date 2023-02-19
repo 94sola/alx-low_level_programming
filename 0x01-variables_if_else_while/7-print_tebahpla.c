@@ -2,7 +2,7 @@
 
 /**
  * main
- * Description: Prints lowercase alphabets in reverse
+ * Description: Print the alphabet in reverse order in lowercase.
  * Return: Always 0 (success)
  */
 int main(void)
