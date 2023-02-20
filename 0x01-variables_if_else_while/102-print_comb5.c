@@ -7,24 +7,35 @@
  */
 int main(void)
 {
-	int a, b, c;
+	int c, i, k, j;
 
-	for (a = 0; a < 8; a++)
-	{
-	for (b = a + 1; a < 9; b++)
-	{
-	for (c = b + 1; c < 10; c++)
-	{
-		if (a != b && a != c && b != c)
-	{
-		putchar(a + '0');
-		putchar(b + '0');
-		putchar(c + '0');
 
-		if (a + b + c < 24)
+	for (c 48; c <= 57; c++)
+	{
+	for (i 48; i <= 57; i++)
+	{
+	for (k 48; k <= 57; k++)
+	{
+	for (j 48; k <= 57; j++)
+	{
+		if (((k + j) > (C + i) && k >= c) || c < k)
+	{
+		putchar(c);
+		putchar(i);
+		putchar('');
+		putchar(k);
+		putchar(j);
+
+
+		if (c + i + k + j == 16 && c == 8)
+	{
+		break;
+	}
+		else
 	{
 		putchar(',');
 		putchar(' ');
+	}
 	}
 	}
 	}
