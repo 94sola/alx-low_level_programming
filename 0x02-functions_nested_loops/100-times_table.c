@@ -1,46 +1,20 @@
+#include <stdio.h>
 #include "main.h"
-
 /**
- * print_times_table - Prints the n times table
- *
- * @n: number times table (0 < n <= 15)
- * Return: no return
- */
-void print_times_table(int n)
+ * main - prints the largest prime factor of 612852475143
+ * Description: to print the odd number
+ * Return: always 0
+ **/
 
+int main(void)
 {
-	int a, b, op;
+	unsigned long int i, n = 612852475143;
 
-	if (n >= 0 && n <= 15)
+	for (i = 3; i < 782849; i = i + 2)
 	{
-		for (a = 0; a <= n; a++)
-	{
-		_putchar(48);
-		for (b = 1; b <= n; b++)
-	{
-		op = a * b;
-		_putchar(44);
-		_putchar(32);
-		if (op <= 9)
-	{
-		_putchar(32);
-		_putchar(32);
-		_putchar(op + 48);
+		while ((n % i == 0) && (n != i))
+			n = n / i;
 	}
-		else if (op <= 99)
-	{
-		_putchar(32);
-		_putchar((op / 10) + 48);
-		_putchar((op % 10) + 48);
-	}
-		else
-	{
-		_putchar(((op / 100) % 10) + 48);
-		_putchar(((op / 10) % 10) + 48);
-		_putchar((op % 10) + 48);
-	}
-	}
-		_putchar('\n');
-	}
-	}
+	printf("%lu\n", n);
+	return (0);
 }
