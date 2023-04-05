@@ -14,7 +14,7 @@
 listint_t **_ra(listint_t **list, size_t size, listint_t *new)
 {
 	listint_t **newlist;
-	size_t i;
+	size_t n;
 
 	newlist = malloc(size * sizeof(listint_t *));
 	if (newlist == NULL)
@@ -22,52 +22,44 @@ listint_t **_ra(listint_t **list, size_t size, listint_t *new)
 		free(list);
 		exit(98);
 	}
-	for (i = 0; i < size - 1; i++)
-		newlist[i] = list[i];
-	newlist[i] = new;
+	for (n = 0; n < size - 1; n++)
+		newlist[n] = list[n];
+	newlist[n] = new;
 	free(list);
 	return (newlist);
 }
+
 /**
- * free_listint_safe - Frees a listint_t list safely (ie.
- *                     can free lists containing loops)
- * @h: A pointer to the address of
- *     the head of the listint_t list.
+ * free_listint_safe - frees a listint_t linked list.
+ * @head: double pointer to the start of the list
  *
- * Return: The size of the list that was freed.
- *
- * Description: The function sets the head to NULL.
+ * Return: the number of nodes in the list
  */
-size_t free_listint_safe(listint_t **h)
+size_t free_listint_safe(listint_t **head)
 {
-	listint_t *tmp;
-	size_t nodes, index;
+	size_t d, prt = 0;
+	listint_t **list = NULL;
+	listint_t *next;
 
-	nodes = looped_listint_count(*h);
-
-	if (nodes == 0)
+	if (head == NULL || *head == NULL)
+		return (prt);
+	while (*head != NULL)
 	{
-		for (; h != NULL && *h != NULL; nodes++)
+		for (d = 0; d < prt; d++)
 		{
-			tmp = (*h)->next;
-			free(*h);
-			*h = tmp;
+			if (*head == list[d])
+			{
+				*head = NULL;
+				free(list);
+				return (prt);
+			}
 		}
+		prt++;
+		list = _ra(list, prt, *head);
+		next = (*head)->next;
+		free(*head);
+		*head = next;
 	}
-
-	else
-	{
-		for (index = 0; index < nodes; index++)
-		{
-			tmp = (*h)->next;
-			free(*h);
-			*h = tmp;
-		}
-
-		*h = NULL;
-	}
-
-	h = NULL;
-
-	return (nodes);
+	free(list);
+	return (prt);
 }
