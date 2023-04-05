@@ -16,7 +16,6 @@ listint_t *find_listint_loop(listint_t *head)
 	{
 		dog = dog->next;
 		rat = rat->next->next;
-		if (dog == rat)
 		{
 		 dog = head;
 			break;
