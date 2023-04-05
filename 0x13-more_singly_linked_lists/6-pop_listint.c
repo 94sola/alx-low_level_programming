@@ -6,10 +6,10 @@
 #include <stdlib.h>
 
 /**
- * pop_listint - Deletes the head node of a listint_t list.
+ * pop_listint - deletes the head node
  * @head: a double pointer
  *
- *Return: if the linked list is empty
+ *Return: If the linked list is empty
  */
 int pop_listint(listint_t **head)
 {
@@ -18,9 +18,11 @@ int pop_listint(listint_t **head)
 
 	if (head == NULL || *head == NULL)
 		return (0);
+
 	fresh = *head;
-	*head= fresh->next;
+	*head = fresh->next;
 	n = fresh->n;
 	free(fresh);
+
 	return (n);
 }
