@@ -1,6 +1,6 @@
 /*
  * Author: Ademoroti olusola 94sola
- * File: 0-binary_to_uint.c (task 0)
+ * File: print binary.c (task 1)
  */
 
 #include "main.h"
