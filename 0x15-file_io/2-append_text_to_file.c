@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- * append_text_to_file - add text to the already existing file
+ * append_text_to_file - add text to a already existing file
  *
- * @filename: the name of a file to append content 
- * @text_content: THE CONTENT THATS TO BE APPENDED TO THE FILE
+ * @filename: the name of the file to append content to
+ * @text_content: THE CONTENT TO BE APPENDED TO THE FIL
  *
  * Return: 1 on success and -1 if not
  */
